@@ -8,6 +8,8 @@ public class Lecteur {
 
         File text = new File("C:/Users/SONES/OneDrive/Bureau/Pojet_fichier/reader/fichier.txt");
         File text2 = new File("C:/Users/SONES/OneDrive/Bureau/Pojet_fichier/reader/Fichier.csv");
+        // Utilisez le comparateur pour vérifier si les fichiers ont la même extension
+        boolean ontMemeExtension = ComparateurFichier.ontMemeExtension(text, text2);
         
         System.out.println("Fichier txt");
         System.out.println("");
@@ -39,5 +41,13 @@ public class Lecteur {
         Lecture_Palindromique k2 = new Lecture_Palindromique(text2);
         k2.affichePal();
         System.out.println("----------------------------");
+        System.out.println("");
+
+        if (ontMemeExtension) {
+            System.out.println("Les deux fichiers ont la même extension.");
+        } else {
+            System.out.println("Les deux fichiers n'ont pas la même extension.");
+        }
+
     }
 }

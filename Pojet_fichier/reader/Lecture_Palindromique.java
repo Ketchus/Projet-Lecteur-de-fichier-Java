@@ -27,14 +27,13 @@ public class Lecture_Palindromique extends Lecture_Normale {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                // Inverser la ligne
+                
                 String reversedLine = reverseString(line);
                 lines.add(reversedLine);
             }
 
             scanner.close();
 
-            // Afficher les lignes inversées
             for (String reversedLine : lines) {
                 System.out.println(reversedLine);
             }
@@ -53,12 +52,20 @@ public class Lecture_Palindromique extends Lecture_Normale {
         this.lines = lines;
     }
 
-    // Méthode pour inverser une chaîne de caractères
+    // Méthode pour inverser une chaîne de caractères en utilisant une ArrayList
     private String reverseString(String input) {
-        StringBuilder reversed = new StringBuilder(input.length());
+        ArrayList<Character> charList = new ArrayList<>();
+
         for (int i = input.length() - 1; i >= 0; i--) {
-            reversed.append(input.charAt(i));
+            charList.add(input.charAt(i));
         }
+
+        StringBuilder reversed = new StringBuilder(charList.size());
+
+        for (char c : charList) {
+            reversed.append(c);
+        }
+
         return reversed.toString();
     }
 }
